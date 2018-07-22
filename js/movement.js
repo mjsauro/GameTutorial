@@ -9,7 +9,9 @@ window.addEventListener('keyup', function (e) {
     stopMove();
 });
 
-function processMovement(){
+function processPlayerMovement(){
+    myGamePiece.speedX = 0;
+	myGameArea.speedY = 0;
     //keys
     //left
     if (myGameArea.keys && (myGameArea.keys[37] || myGameArea.keys[65])) {myGamePiece.speedX = -1; }
