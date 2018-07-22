@@ -3,11 +3,11 @@
 window.addEventListener('keydown', function (e) {
     myGameArea.keys = (myGameArea.keys || []);
     myGameArea.keys[e.keyCode] = true;
-})
+});
 window.addEventListener('keyup', function (e) {
     myGameArea.keys[e.keyCode] = false;
     stopMove();
-})
+});
 
 function processMovement(){
     //keys
