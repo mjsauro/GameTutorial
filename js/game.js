@@ -1,12 +1,16 @@
 var myGamePiece;
+var myBackground;
 var myObstacles = [];
 var myScore;
 
 function startGame() {
 	myGameArea.start();
-	myGamePiece = new component(30, 30, "blue", 10, 200);
+	//old game piece as block
+	//myGamePiece = new component(30, 30, "blue", 10, 200);
+	myGamePiece = new component(30, 30, "assets/spaceship.svg", 10, 120, "image");
+	myBackground = new component(656, 270, "assets/space-background.png", 0, 0, "background");
 	myObstacle = new component(10, 200, "red", 300, 120);
-	myScore = new component("30px", "Consolas", "black", 280, 40, "text");
+	myScore = new component("30px", "Consolas", "blue", 280, 40, "text");
 
 }
 
@@ -53,6 +57,9 @@ function updateGameArea() {
 		}
 	}
 	myGameArea.clear();
+	myBackground.speedX = -1;
+	myBackground.newPos();
+	myBackground.update();
 	myGameArea.frameNo += 1;
 	myScore.text="SCORE: " + myGameArea.frameNo;
 	processObstacle();
