@@ -1,10 +1,13 @@
 var myGamePiece;
 var myObstacles = [];
+var myScore;
 
 function startGame() {
 	myGameArea.start();
 	myGamePiece = new component(30, 30, "blue", 10, 200);
 	myObstacle = new component(10, 200, "red", 300, 120);
+	myScore = new component("30px", "Consolas", "black", 280, 40, "text");
+
 }
 
 //game area
@@ -50,10 +53,13 @@ function updateGameArea() {
 		}
 	}
 	myGameArea.clear();
+	myGameArea.frameNo += 1;
+	myScore.text="SCORE: " + myGameArea.frameNo;
 	processObstacle();
 	processPlayerMovement();
 	myGamePiece.newPos();
 	myGamePiece.update();
+	myScore.update();
 	
 
 }
