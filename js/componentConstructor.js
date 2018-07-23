@@ -43,12 +43,10 @@ function component(width, height, color, x, y, type) {
         var myRight = this.x + (this.width);
         var myTop = this.y;
         var myBottom = this.y + (this.height);
-
         var otherLeft = otherObj.x;
         var otherRight = otherObj.x + (otherObj.width);
         var otherTop = otherObj.y;
         var otherBottom = otherObj.y + (otherObj.height);
-
         var crash = true;
         if (
             (myBottom < otherTop) ||
@@ -58,7 +56,6 @@ function component(width, height, color, x, y, type) {
         ) {
             crash = false;
         }
-
         return crash;
     };
 }
