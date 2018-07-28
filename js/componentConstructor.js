@@ -17,8 +17,7 @@ function component(width, height, color, x, y, type) {
             ctx.font = this.width + " " + this.height;
             ctx.fillStyle = color;
             ctx.fillText(this.text, this.x, this.y);
-        } else 
-        if (type == "image" || type == "background") {
+        } else if (type == "image" || type == "background") {
             ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
             if (type == "background") {
                 ctx.drawImage(this.image, 
@@ -27,6 +26,10 @@ function component(width, height, color, x, y, type) {
         } else {
             ctx.fillStyle = color;
             ctx.fillRect(this.x, this.y, this.width, this.height);
+
+            if (type == "weapons") {
+                this.speedX = 10;
+            }
         }
     };
     this.newPos = function () {

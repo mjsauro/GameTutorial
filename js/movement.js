@@ -23,12 +23,6 @@ function processPlayerMovement(){
     if (myGameArea.keys && (myGameArea.keys[40] || myGameArea.keys[83])) {myGamePiece.speedY = 1; }
 }
 
-function processWeapon() {
-        //space
-        
-        if (myGameArea.keys && (myGameArea.keys[32])) { myLaserWeapon.speedX = 5; }
-}
-
 
 //function to stop movement
 function stopMove() {

@@ -15,7 +15,6 @@ var myGameArea = {
 		this.context = this.canvas.getContext("2d");
 		this.frameNo = 0;
 		var contentDiv = document.getElementById("canvas-container");
-		//document.body.insertBefore(this.canvas, document.body.childNodes[0]);
 		contentDiv.appendChild(this.canvas);
 
 		//update the game area
@@ -55,12 +54,13 @@ function updateGameArea() {
 	myGameArea.frameNo += 1;
 	myScore.text="SCORE: " + myGameArea.frameNo;
 	processObstacle();
+	processAsteroid();
 	processPlayerMovement();
-	processWeapon();
 	myGamePiece.newPos();
 	myGamePiece.update();
-	myLaserWeapon.newPos();
-	myLaserWeapon.update();
+	processWeapon();
+/* 	myLaserWeapon.newPos();
+	myLaserWeapon.update(); */
 	myScore.update();
 	
 
