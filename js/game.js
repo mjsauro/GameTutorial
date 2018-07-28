@@ -44,7 +44,7 @@ function updateGameArea() {
 	for (i = 0; i < myObstacles.length; i++) {
 		if (myGamePiece.crashWith(myObstacles[i])) {
 			myGameArea.stop();
-			alert("CRASH!");			
+			$("#modal-trigger").trigger("click");			
 			return;
 		}
 	}
@@ -56,8 +56,11 @@ function updateGameArea() {
 	myScore.text="SCORE: " + myGameArea.frameNo;
 	processObstacle();
 	processPlayerMovement();
+	processWeapon();
 	myGamePiece.newPos();
 	myGamePiece.update();
+	myLaserWeapon.newPos();
+	myLaserWeapon.update();
 	myScore.update();
 	
 

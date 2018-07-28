@@ -1,6 +1,7 @@
     //myGamePiece = new component(30, 30, "blue", 10, 200);
 var myGamePiece;
 var myBackground;
+var myLaserWeapon;
 var myObstacles = [];
 var myScore;
     function loadComponents() {   
@@ -8,4 +9,6 @@ var myScore;
 	myBackground = new component(1000, 400, "assets/space-background.png", 0, 0, "background");
 	myObstacle = new component(10, 200, "red", 300, 120);
     myScore = new component("30px", "Consolas", "blue", 280, 40, "text");
+    myLaserWeapon = new component(50, 50, "white", myGamePiece.x, myGamePiece.y);
+
 }
