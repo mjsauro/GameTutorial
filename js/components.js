@@ -3,6 +3,7 @@ var myBackground;
 var myObstacles = [];
 var myWeapons = [];
 var myAsteroids = [];
+var myEnemies = [];
 var myScore;
     function loadComponents() {   
 	myGamePiece = new component(30, 30, "assets/spaceship.svg", 10, 120, "image");

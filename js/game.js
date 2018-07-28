@@ -26,6 +26,16 @@ var myGameArea = {
 	},
 	stop: function () {
 		clearInterval(this.interval);
+	},
+	gameOver: function () {
+		$("#modal-trigger").trigger("click");			        
+	},
+	score: function() {
+		myScore.text="SCORE: " + myGameArea.frameNo;
+/* 		if (additionalPoints != null || additionalPoints != 0) {
+			//implement later
+		} */
+		myScore.update();
 	}
 };
 
@@ -39,29 +49,17 @@ function everyInterval(n) {
 
 //update game every 20ms
 function updateGameArea() {
-
-	for (i = 0; i < myObstacles.length; i++) {
-		if (myGamePiece.crashWith(myObstacles[i])) {
-			myGameArea.stop();
-			$("#modal-trigger").trigger("click");			
-			return;
-		}
-	}
+	collisionDetector(myAsteroids);
 	myGameArea.clear();
 	myBackground.speedX = -1;
 	myBackground.newPos();
 	myBackground.update();
 	myGameArea.frameNo += 1;
-	myScore.text="SCORE: " + myGameArea.frameNo;
-	processObstacle();
 	processAsteroid();
 	processPlayerMovement();
+	processWeapon();
 	myGamePiece.newPos();
 	myGamePiece.update();
-	processWeapon();
-/* 	myLaserWeapon.newPos();
-	myLaserWeapon.update(); */
-	myScore.update();
+	myGameArea.score();
 	
-
 }
