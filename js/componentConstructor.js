@@ -59,6 +59,42 @@ function component(width, height, color, x, y, type) {
         ) {
             crash = false;
         }
-        return crash;
+        return crash;       
+    };
+    this.weaponHit = function(otherObj) {
+        var myRight = this.x + (this.width /2);
+        var myLeft = this.x  - (this.width / 2);
+        var myTop = this.y + (this.height /2);
+        var myBottom = this.y - (this.height / 2); 
+        var hit = true;
+        var otherTop = otherObj.y + (otherObj.height / 2);
+        var otherBottom = otherObj.y - (otherObj.height / 2);    
+        var otherLeft = otherObj.x - 10; 
+        var otherRight = otherObj.x + 10;
+
+        if (
+            myRight >= otherLeft &&
+            myRight <= otherRight &&
+            myTop <= otherTop &&
+            myTop >= otherBottom &&
+            myBottom >= otherBottom &&
+            myBottom <= otherTop
+            )
+            {
+/*              console.log(this);
+                console.log(otherObj);
+                console.log("myRight: " + myRight);
+                console.log("otherLeft: " + otherLeft);
+                console.log("otherRight: " + otherRight);
+                console.log("myTop: " + myTop);
+                console.log("otherTop: " + otherTop);
+                console.log("myBottom: " + myBottom);
+                console.log("otherBottom: " + otherBottom);     */                        
+                return hit;
+            } else {
+                hit = false;
+                return hit;
+            }
+
     };
 }

@@ -23,6 +23,16 @@ var myGameArea = {
 	},
 	clear: function () {
 		this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+		for (var i = 0; i < myAsteroids.length; i++) {
+			if (myAsteroids[i].height == 0 | myAsteroids[i].x < 0) {
+				myAsteroids.splice(i, 1);				
+			}
+		}
+		for (var j = 0; j < myWeapons.length; j++ ) {
+			if (myWeapons[j].height == 0 | myWeapons[j].x > 800) {
+				myWeapons.splice(j, j + 1);
+			}
+		}
 	},
 	stop: function () {
 		clearInterval(this.interval);
@@ -32,10 +42,11 @@ var myGameArea = {
 	},
 	score: function() {
 		myScore.text="SCORE: " + myGameArea.frameNo;
-/* 		if (additionalPoints != null || additionalPoints != 0) {
-			//implement later
-		} */
 		myScore.update();
+	},
+	kills: function() {
+		myKills.text= "KILLS: " + killCount;
+		myKills.update();
 	}
 };
 
@@ -50,6 +61,7 @@ function everyInterval(n) {
 //update game every 20ms
 function updateGameArea() {
 	collisionDetector(myAsteroids);
+	weaponDetector(myAsteroids);
 	myGameArea.clear();
 	myBackground.speedX = -1;
 	myBackground.newPos();
@@ -61,5 +73,6 @@ function updateGameArea() {
 	myGamePiece.newPos();
 	myGamePiece.update();
 	myGameArea.score();
+	myGameArea.kills();
 	
 }
